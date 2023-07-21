@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { SuperHero } from '../models/super-hero.dto';
@@ -13,7 +13,8 @@ export class SuperHeroService {
   constructor(private http: HttpClient) {}
 
   public getSuperHeroes(): Observable<SuperHero[]> {
-    return this.http.get<SuperHero[]>(`${environment.apiUrl}/${this.url}`);
+    const url = `${environment.apiUrl}/${this.url}`;
+    return this.http.get<SuperHero[]>(url);
   }
 
   public updateHero(hero: SuperHero): Observable<SuperHero[]> {

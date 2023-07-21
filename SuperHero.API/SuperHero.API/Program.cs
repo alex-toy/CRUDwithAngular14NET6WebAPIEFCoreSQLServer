@@ -10,17 +10,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddDbContext<DataContext>(options =>
-//{
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-//});
-
 string DefaultConnectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(DefaultConnectionString));
 
 builder.Services.AddCors(options => options.AddPolicy(name: "SuperHeroOrigins", policy =>
 {
-    policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+    policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
 }));
 
 var app = builder.Build();
@@ -31,6 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("SuperHeroOrigins");
 
 app.UseHttpsRedirection();
 
