@@ -1,3 +1,25 @@
 # CRUD with Angular 14 & .NET 6, Web API, EF Core & SQL Server
 
-https://github.com/patrickgod/SuperHeroNG
+## Settings
+
+### Add Packages
+```
+Microsoft.AspNetCore.Identity.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.Design
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+```
+
+### Migrations
+```
+Add-Migration InitialCreate
+Update-Database
+```
+
+
+## API
+
+### Postman
+
+<img src="/pictures/api.png" title="superhero api"  width="900">
+

@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using SuperHeros.API.Repo;
 
 var builder = WebApplication.CreateBuilder(args);
